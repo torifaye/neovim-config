@@ -8,5 +8,13 @@ require('bufferline-config')
 require('nvim-tree-config')
 require('autopairs-config')
 require('whichkey-config')
-vim.cmd[[colorscheme nord]]
+require('telescope-config')
+require('nvim-lsp-installer-config')
+require('colorizer-config')
+require('gitsigns-config')
+require('lsp')
+require('catppuccin').setup()
+vim.g.catppuccin_flavour = "macchiato"
+-- require('lsp-configs.elixir')
+vim.cmd[[colorscheme catppuccin]]
 
