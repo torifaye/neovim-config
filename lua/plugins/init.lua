@@ -7,18 +7,18 @@ return require('packer').startup(function()
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = "require('treesitter-config')"
+    config = "require('config.treesitter')"
   }
   use {
     'tamton-aquib/staline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = "require('staline-config')"
+    config = "require('config.staline')"
   }
   -- using packer.nvim
   use { 'akinsho/bufferline.nvim',
     tag = "v2.*",
     requires = 'kyazdani42/nvim-web-devicons',
-    config = "require('bufferline-config')"
+    config = "require('config.bufferline')"
   }
   use {
     'kyazdani42/nvim-tree.lua',
@@ -26,7 +26,7 @@ return require('packer').startup(function()
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
     },
     tag = 'nightly', -- optional, updated every week. (see issue #1193)
-    config = "require('nvim-tree-config')"
+    config = "require('config.nvim-tree')"
   }
   use {
     'windwp/nvim-ts-autotag',
@@ -41,17 +41,17 @@ return require('packer').startup(function()
   use { 'tpope/vim-surround' }
   use {
     'windwp/nvim-autopairs',
-    config = "require('autopairs-config')",
+    config = "require('config.autopairs')",
     after = 'nvim-cmp'
   }
   use {
     'folke/which-key.nvim',
-    event = 'BufWinEnter', config = "require('whichkey-config')"
+    event = 'BufWinEnter', config = "require('config.whichkey')"
   }
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    cmd = 'Telescope', config = "require('telescope-config')"
+    cmd = 'Telescope', config = "require('config.telescope')"
   }
   use { 'neovim/nvim-lspconfig', config = "require('lsp')" }
   use { 'hrsh7th/cmp-nvim-lsp' }
@@ -65,35 +65,35 @@ return require('packer').startup(function()
   use { 'williamboman/nvim-lsp-installer' }
   use {
     'norcalli/nvim-colorizer.lua',
-    event = 'BufRead', config = "require('colorizer-config')"
+    event = 'BufRead', config = "require('config.colorizer')"
   }
   use {
     'lewis6991/gitsigns.nvim',
-    config = "require('gitsigns-config')"
+    config = "require('config.gitsigns')"
   }
   use {
     'glepnir/dashboard-nvim',
-    config = "require('dashboard-config')"
+    config = "require('config.dashboard')"
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead', config = "require('blankline-config')"
+    event = 'BufRead', config = "require('config.blankline')"
   }
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    config = "require('null-ls-config')"
+    config = "require('config.null-ls')"
   }
-  use { "folke/zen-mode.nvim", config = "require('zen-mode-config')" }
-  use { "folke/twilight.nvim", config = "require('twilight-config')" }
+  use { "folke/zen-mode.nvim", config = "require('config.zen-mode')" }
+  use { "folke/twilight.nvim", config = "require('config.twilight')" }
   use {
     'akinsho/toggleterm.nvim',
     tag = 'v2.*',
-    config = "require('toggleterm-config')"
+    config = "require('config.toggleterm')"
   }
   use {
     'numToStr/Comment.nvim',
-    config = "require('comment-config')"
+    config = "require('config.comment')"
   }
   use {
     'lewis6991/impatient.nvim'
@@ -101,6 +101,6 @@ return require('packer').startup(function()
   use {
     'glepnir/lspsaga.nvim',
     branch = 'main',
-    config = "require('lspsaga-config')"
+    config = "require('config.lspsaga')"
   }
 end)
