@@ -1,16 +1,26 @@
--- Setup lspconfig.
+local lspconfig = require('lspconfig')
+-- local lspformat = require('lsp-format')
+local lsp_installer = require('nvim-lsp-installer')
+lsp_installer.setup {}
+-- lspformat.setup {}
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local lspconfig = require('lspconfig')
+-- local on_attach = function(client)
+--   lspformat.on_attach(client)
+-- end
 
 -- Language server set ups
-lspconfig.elixirls.setup{
+lspconfig.elixirls.setup {
   capabilities = capabilities,
+  -- on_attach = on_attach,
 }
-lspconfig.sumneko_lua.setup{
+lspconfig.sumneko_lua.setup {
   capabilities = capabilities,
-  settings = {
+  -- on_attach = on_attach,
+  settings =
+  {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -18,7 +28,7 @@ lspconfig.sumneko_lua.setup{
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim', 'use' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -29,17 +39,21 @@ lspconfig.sumneko_lua.setup{
         enable = false,
       },
     },
-  },
+  }
 }
-lspconfig.tsserver.setup{
+lspconfig.tsserver.setup {
   capabilities = capabilities,
+  -- on_attach = on_attach,
 }
-lspconfig.pyright.setup{
+lspconfig.pyright.setup {
   capabilities = capabilities,
+  -- on_attach = on_attach,
 }
-lspconfig.html.setup{
+lspconfig.html.setup {
   capabilities = capabilities,
+  -- on_attach = on_attach,
 }
-lspconfig.cssls.setup{
+lspconfig.cssls.setup {
   capabilities = capabilities,
+  -- on_attach = on_attach,
 }
