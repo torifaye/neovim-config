@@ -5,6 +5,8 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'shaunsingh/nord.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { "Shatur/neovim-ayu" }
+  use { "savq/melange" }
   use { 'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = "require('config.treesitter')"
@@ -61,6 +63,7 @@ return require('packer').startup(function()
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-vsnip' }
   use { 'hrsh7th/vim-vsnip' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'onsails/lspkind-nvim' }
   use { 'williamboman/nvim-lsp-installer' }
   use {
@@ -98,9 +101,42 @@ return require('packer').startup(function()
   use {
     'lewis6991/impatient.nvim'
   }
+  -- use {
+  --   'glepnir/lspsaga.nvim',
+  --   branch = 'main',
+  --   config = "require('config.lspsaga')"
+  -- }
   use {
-    'glepnir/lspsaga.nvim',
-    branch = 'main',
-    config = "require('config.lspsaga')"
+    'folke/trouble.nvim',
+    requires = "kyazdani42/nvim-web-devicons",
+    config = "require('config.trouble')"
+  }
+  use {
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' }
+    },
+    config = "require('config.navigator')"
+  }
+  -- use {
+  --   'mhanberg/elixir.nvim',
+  --   requires = {
+  --     'neovim/nvim-lspconfig',
+  --     'nvim-lua/plenary.nvim'
+  --   },
+  --   config = "require('config.languages')"
+  -- }
+  use {
+    'mg979/vim-visual-multi'
+  }
+  use {
+    'ggandor/leap.nvim',
+    requires = {
+      'tpope/vim-repeat'
+    },
+    config = function()
+      require('leap').set_default_keymaps()
+    end
   }
 end)

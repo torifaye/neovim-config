@@ -16,7 +16,7 @@ require("bufferline").setup {
       end
       return s
     end,
-    separator_style = 'padded_slant',
+    separator_style = 'slant',
     offsets = {
       {
         filetype = 'NvimTree',

@@ -1,8 +1,6 @@
 local lspconfig = require('lspconfig')
--- local lspformat = require('lsp-format')
 local lsp_installer = require('nvim-lsp-installer')
 lsp_installer.setup {}
--- lspformat.setup {}
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true

@@ -20,7 +20,8 @@ local mappings = {
   f = { ':Telescope find_files<CR>', 'Find' },
   r = { ':Telescope live_grep<CR>', 'Grep' },
   t = {
-    t = { ":ToggleTerm<cr>", "Split Below" },
+    name = "Terminal",
+    g = { ":ToggleTerm<cr>", "Split Below" },
     f = { toggle_float, "Floating Terminal" },
     l = { toggle_lazygit, "LazyGit" }
   },
@@ -45,6 +46,10 @@ local mappings = {
     s = { ":PackerSync<cr>", "Sync Plugins" },
     S = { ":PackerStatus<cr>", "Packer Status" },
     u = { ":PackerUpdate<cr>", "Update Plugins" }
+  },
+  d = {
+    name = "Diagnostics",
+    t = { ":TroubleToggle<cr>", "Toggle Diagnostics List" }
   },
 }
 local opts = { prefix = '<leader>' }
