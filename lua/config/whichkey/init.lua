@@ -13,7 +13,7 @@ end
 
 local mappings = {
   q = { ':q<CR>', 'Quit' },
-  Q = { ':wq<CR>', 'Save and Quit' },
+  Q = { ':xa<CR>', 'Save and Quit' },
   w = { ':w<CR>', 'Save' },
   x = { ':bdelete<CR>', 'Close' },
   E = { ':e ~/.config/nvim/init.lua<CR>', 'Edit Root Config' },
@@ -21,9 +21,9 @@ local mappings = {
   r = { ':Telescope live_grep<CR>', 'Grep' },
   t = {
     name = "Terminal",
-    g = { ":ToggleTerm<cr>", "Split Below" },
+    b = { ":ToggleTerm<cr>", "Split Below" },
     f = { toggle_float, "Floating Terminal" },
-    l = { toggle_lazygit, "LazyGit" }
+    g = { toggle_lazygit, "LazyGit" }
   },
   l = {
     name = "LSP",

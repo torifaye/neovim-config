@@ -1,6 +1,7 @@
 local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   sources = {
@@ -14,16 +15,20 @@ null_ls.setup({
       }
     }), formatting.isort, formatting.codespell.with({ filetypes = { 'markdown' } })
   },
-  on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr,
+            filter = function(lsp_client)
+              return lsp_client.name == "null-ls"
+            end
+          })
+        end
+      })
     end
-    -- vim.cmd [[
-    --   augroup document_highlight
-    --     autocmd! * <buffer>
-    --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    --   augroup END
-    -- ]]
   end
 })
