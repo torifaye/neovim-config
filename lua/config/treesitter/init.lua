@@ -10,7 +10,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = "all",
-
+  ignore_install = {"phpdoc"},
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
