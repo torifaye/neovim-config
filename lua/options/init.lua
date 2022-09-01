@@ -1,4 +1,5 @@
 vim.cmd('filetype plugin indent on')
+vim.o.shell = '/opt/homebrew/bin/fish'
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'

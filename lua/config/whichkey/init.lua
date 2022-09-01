@@ -12,10 +12,10 @@ local toggle_lazygit = function()
 end
 
 local mappings = {
-  q = { ':q<CR>', 'Quit' },
+  q = { ':Bdelete<CR>', 'Close' },
+  x = { ':q<CR>', 'Quit' },
   Q = { ':xa<CR>', 'Save and Quit' },
   w = { ':w<CR>', 'Save' },
-  x = { ':bdelete<CR>', 'Close' },
   E = { ':e ~/.config/nvim/init.lua<CR>', 'Edit Root Config' },
   f = { ':Telescope find_files<CR>', 'Find' },
   r = { ':Telescope live_grep<CR>', 'Grep' },
@@ -35,7 +35,7 @@ local mappings = {
     l = {
       '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>',
       "List Workspace Folders"
-    },
+    }
   },
   p = {
     name = "Packer",
@@ -49,8 +49,10 @@ local mappings = {
   },
   d = {
     name = "Diagnostics",
-    t = { ":TroubleToggle<cr>", "Toggle Diagnostics List" }
-  },
+    d = { ":TroubleToggle document_diagnostics<CR>", "Toggle Document Diagnostics" },
+    w = { ":TroubleToggle workspace_diagnostics<CR>", "Toggle Workspace Diagnostics" },
+    q = { ":TroubleToggle quickfix<CR>", "Toggle Quickfix" }
+  }
 }
 local opts = { prefix = '<leader>' }
 wk.register(mappings, opts)
