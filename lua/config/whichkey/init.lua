@@ -14,9 +14,10 @@ end
 local mappings = {
   q = { ':Bdelete<CR>', 'Close' },
   x = { ':q<CR>', 'Quit' },
+  e = { ':Neotree filesystem toggle right<CR>', 'Toggle File Browser' },
+  E = { ':Neotree filesystem toggle float<CR>', 'Toggle Floating File Browser' },
   Q = { ':xa<CR>', 'Save and Quit' },
   w = { ':w<CR>', 'Save' },
-  E = { ':e ~/.config/nvim/init.lua<CR>', 'Edit Root Config' },
   f = { ':Telescope find_files<CR>', 'Find' },
   r = { ':Telescope live_grep<CR>', 'Grep' },
   t = {
