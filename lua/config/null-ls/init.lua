@@ -6,10 +6,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local async_formatting = function(bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
 
-  vim.lsp.buf_request(
-    bufnr,
-    "textDocument/formatting",
-    vim.lsp.util.make_formatting_params({}),
+  vim.lsp.buf_request(bufnr, "textDocument/formatting", vim.lsp.util.make_formatting_params({}),
     function(err, res, ctx)
       if err then
         local err_msg = type(err) == "string" and err or err.message
@@ -30,15 +27,13 @@ local async_formatting = function(bufnr)
           vim.cmd("silent noautocmd update")
         end)
       end
-    end
-  )
+    end)
 end
 null_ls.setup({
   sources = {
     formatting.prettier, formatting.black, formatting.gofmt, formatting.shfmt,
-    formatting.clang_format, formatting.cmake_format, formatting.dart_format,
-    formatting.mix,
-    formatting.lua_format.with({
+    formatting.clang_format, formatting.cmake_format, formatting.dart_format, formatting.mix,
+    formatting.fixjson, formatting.lua_format.with({
       extra_args = {
         '--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=100',
         '--break-after-table-lb', '--indent-width=2'
@@ -48,11 +43,12 @@ null_ls.setup({
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePost", {
+      vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
         callback = function()
           async_formatting(bufnr)
+
         end
       })
     end

@@ -5,7 +5,7 @@ vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
 vim.o.pumheight = 10
 vim.o.fileencoding = 'utf-8'
-vim.o.cmdheight = 2
+vim.o.cmdheight = 0
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.opt.termguicolors = true
@@ -34,6 +34,5 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
-vim.diagnostic.config({
-  virtual_text = false,
-})
+vim.diagnostic.config({ virtual_text = false })
+vim.o.guifont="PragmataPro Liga:h16"

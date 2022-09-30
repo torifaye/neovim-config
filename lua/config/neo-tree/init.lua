@@ -14,7 +14,8 @@ require('neo-tree').setup {
     position = "right",
     width = "20%",
     popup = { size = { height = "80%", width = "50%" }, position = "50%" },
-    mapping_options = { noremap = true, nowait = true }
+    mapping_options = { noremap = true, nowait = true },
+    mappings = { ["s"] = "none", ["S"] = "none", ["<C-s>"] = "open_vsplit", ["C-,"] = "open_split" }
   },
   filesystem = {
     filtered_items = {
