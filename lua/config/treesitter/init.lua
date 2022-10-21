@@ -1,16 +1,11 @@
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    underline = true,
-    virtual_text = false,
-    update_in_insert = true,
-  }
-)
+vim.lsp.handlers['textDocument/publishDiagnostics'] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                 {underline = true, virtual_text = false, update_in_insert = true})
 
-require 'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = "all",
-  ignore_install = { "phpdoc" },
+  ignore_install = {"phpdoc"},
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
@@ -19,56 +14,44 @@ require 'nvim-treesitter.configs'.setup {
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = false
   },
-  autotag = {
-    enable = true
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = false,
-    max_file_lines = nil,
-  },
-  autopairs = { enable = true },
+  autotag = {enable = true},
+  rainbow = {enable = true, extended_mode = false, max_file_lines = nil},
+  autopairs = {enable = true},
   incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
       scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-  indent = {
-    enable = true
-  },
-  textobjects = {
-    enable = true,
-    keymaps = {
-      ["af"] = "@function.outer",
-      ["if"] = "@function.inner",
-      ["aC"] = "@class.outer",
-      ["iC"] = "@class.inner",
-      ["ac"] = "@conditional.outer",
-      ["ic"] = "@conditional.inner",
-      ["ae"] = "@block.outer",
-      ["ie"] = "@block.inner",
-      ["al"] = "@loop.outer",
-      ["il"] = "@loop.inner",
-      ["is"] = "@statement.inner",
-      ["as"] = "@statement.outer",
-      ["ad"] = "@comment.outer",
-      ["am"] = "@call.outer",
-      ["im"] = "@call.inner"
+      node_decremental = "grm"
     }
   },
-}
-
-require('treesitter-context').setup {
-  mode = 'topline',
-  patterns = {
-    elixir = {
-      'do_block'
+  indent = {enable = true},
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["aC"] = "@class.outer",
+        ["iC"] = "@class.inner",
+        ["ac"] = "@conditional.outer",
+        ["ic"] = "@conditional.inner",
+        ["ae"] = "@block.outer",
+        ["ie"] = "@block.inner",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner",
+        ["is"] = "@statement.inner",
+        ["as"] = "@statement.outer",
+        ["ad"] = "@comment.outer",
+        ["am"] = "@call.outer",
+        ["im"] = "@call.inner"
+      }
     }
   }
 }
+
+require('treesitter-context').setup {mode = 'topline', patterns = {elixir = {'do_block'}}}

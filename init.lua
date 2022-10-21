@@ -1,10 +1,10 @@
 vim.g.mapleader = " "
-require('impatient').enable_profile()
+require('impatient')
 require('plugins')
 require('keybinds')
 require('options')
 require('autogroups')
-require('catppuccin').setup()
-vim.g.catppuccin_flavour = "macchiato"
+-- require('catppuccin').setup()
+-- vim.g.catppuccin_flavour = "macchiato"
 -- require('ayu').setup({ mirage = true })
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme melange]]
