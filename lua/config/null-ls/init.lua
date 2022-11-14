@@ -18,7 +18,7 @@ null_ls.setup({
   sources = {
     formatting.prettier, formatting.black, formatting.gofmt, formatting.shfmt, formatting.rubocop,
     formatting.clang_format, formatting.cmake_format, formatting.dart_format, formatting.mix,
-    formatting.fixjson, formatting.lua_format.with({
+    formatting.lua_format.with({
       extra_args = {
         '--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=100',
         '--break-after-table-lb', '--indent-width=2'

@@ -20,6 +20,11 @@ local mappings = {
   w = { ':w<CR>', 'Save' },
   f = { ':Telescope find_files<CR>', 'Find' },
   r = { ':Telescope live_grep<CR>', 'Grep' },
+  g = {
+    name = "Git",
+    g = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
+    l = { toggle_lazygit, "Lazygit" }
+  },
   s = {
     name = "Show",
     f = { toggle_float, "Floating Terminal" },
