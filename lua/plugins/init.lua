@@ -46,7 +46,12 @@ return require('packer').startup(function(use)
   use {'hrsh7th/cmp-path'}
   use {'hrsh7th/cmp-cmdline'}
   use {'hrsh7th/nvim-cmp'}
-  use {'L3MON4D3/LuaSnip', tag = "v1.*"}
+  use {
+    'L3MON4D3/LuaSnip',
+    tag = "v1.*",
+    requires = {"rafamadriz/friendly-snippets"},
+    config = "require('config.luasnip')"
+  }
   use {'saadparwaiz1/cmp_luasnip'}
   use {'rafamadriz/friendly-snippets'}
   --  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
@@ -103,11 +108,11 @@ return require('packer').startup(function(use)
     config = "require('config.sessions')"
   }
   use 'famiu/bufdelete.nvim'
-  -- use {
-  --   'kevinhwang91/nvim-ufo',
-  --   requires = 'kevinhwang91/promise-async',
-  --   config = "require('config.ufo')"
-  -- }
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = "require('config.ufo')"
+  }
   use {
     'anuvyklack/windows.nvim',
     requires = {"anuvyklack/middleclass", "anuvyklack/animation.nvim"},
@@ -147,4 +152,5 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     config = "require('config.neogit')"
   }
+  use {'ggandor/flit.nvim', requires = {'ggandor/leap.nvim'}, config = "require('config.flit')"}
 end)

@@ -255,12 +255,12 @@ local Diagnostics = {
 
   condition = conditions.has_diagnostics,
 
-  static = {
-    error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
-    warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
-    info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
-    hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text
-  },
+  --static = {
+   -- error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
+    --warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
+    --info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
+    --hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text
+  --},
 
   init = function(self)
     self.errors = #vim.diagnostic.get(0, {severity = vim.diagnostic.severity.ERROR})
@@ -338,8 +338,11 @@ local Space = {provider = " "}
 
 ViMode = utils.surround({"", ""}, "bright_bg", {ViMode --[[ Snippets  ]] })
 
+--local DefaultStatusline = {
+--  ViMode, Space, FileNameBlock, Space, Diagnostics, Align, LSPActive, Align, Ruler, Space, ScrollBar
+--}
 local DefaultStatusline = {
-  ViMode, Space, FileNameBlock, Space, Diagnostics, Align, LSPActive, Align, Ruler, Space, ScrollBar
+  ViMode, Space, FileNameBlock, Space, Align, LSPActive, Align, Ruler, Space, ScrollBar
 }
 local InactiveStatusline = {condition = conditions.is_not_active, FileType, Space, FileName, Align}
 

@@ -1,0 +1,10 @@
+{
+  "do_block": {
+		"prefix": "do",
+		"body": [
+			"do",
+			"\t$0",
+			"end"
+		]
+	}
+}

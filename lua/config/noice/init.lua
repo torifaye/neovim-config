@@ -1,1 +1,4 @@
-require("noice").setup({lsp = {hover = {enabled = false}, signature = {enabled = false}}})
+require("noice").setup({
+  popupmenu = { enabled = false },
+  lsp = { hover = { enabled = false }, signature = { enabled = false } }
+})
