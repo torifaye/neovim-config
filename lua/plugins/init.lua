@@ -132,12 +132,12 @@ return require('packer').startup(function(use)
     config = "require('config.heirline')",
     requires = {'nvim-tree/nvim-web-devicons'}
   }
-  use {
-    'folke/noice.nvim',
-    requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify", "hrsh7th/nvim-cmp"},
-    config = "require('config.noice')",
-    cond = vim.g.neovide == nil and vim.g.vscode == nil
-  }
+  -- use {
+  --   'folke/noice.nvim',
+  --   requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify", "hrsh7th/nvim-cmp" },
+  --   config = "require('config.noice')",
+  --   cond = vim.g.neovide == nil and vim.g.vscode == nil
+  -- }
   use {'j-hui/fidget.nvim', config = "require('config.fidget')"}
   use {'folke/tokyonight.nvim'}
   use {'tamton-aquib/duck.nvim', config = "require('config.duck')"}

@@ -22,7 +22,7 @@ local mappings = {
   r = { ':Telescope live_grep<CR>', 'Grep' },
   g = {
     name = "Git",
-    g = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
+    g = { "<cmd>lua require('neogit').open({ kind = 'vsplit' })<cr>", "Neogit" },
     l = { toggle_lazygit, "Lazygit" }
   },
   s = {

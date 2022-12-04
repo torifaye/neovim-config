@@ -1,5 +1,5 @@
-function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend("force", options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -15,6 +15,8 @@ map('n', "\\", ':Neotree reveal<cr>')
 map("n", "tn", ":tabnext<cr>")
 map("n", "tp", ":tabprevious<cr>")
 map("n", "tt", ":ToggleTerm dir=. direction=tab<cr>")
+map("n", "<C-D>", "<C-D>zz")
+map("n", "<C-U>", "<C-U>zz")
 map("t", "<C-N>", "<C-\\><C-n>")
 map('v', '<', '<gv')
 map('v', '>', '>gv')
