@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
   }
   -- use {
   --   'folke/noice.nvim',
-  --   requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify", "hrsh7th/nvim-cmp" },
+  --   requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify", "hrsh7th/nvim-cmp"},
   --   config = "require('config.noice')",
   --   cond = vim.g.neovide == nil and vim.g.vscode == nil
   -- }
@@ -153,4 +153,11 @@ return require('packer').startup(function(use)
     config = "require('config.neogit')"
   }
   use {'ggandor/flit.nvim', requires = {'ggandor/leap.nvim'}, config = "require('config.flit')"}
+  use {
+    'lazytanuki/nvim-mapper',
+    config = function()
+      require('nvim-mapper').setup {}
+    end,
+    before = 'telescope.nvim'
+  }
 end)
