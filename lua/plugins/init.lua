@@ -177,7 +177,13 @@ local plugins = {
     config = function()
       require('nvim-mapper').setup {}
     end
-  }, {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+  }, {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}, {
+    'folke/noice.nvim',
+    dependencies = {'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify'},
+    config = function()
+      require('config.noice')
+    end
+  }
 }
 local opts = {}
 
