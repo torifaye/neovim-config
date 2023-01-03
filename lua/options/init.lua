@@ -34,5 +34,7 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({virtual_text = false})
 vim.o.guifont = "PragmataPro Liga:h16"
+vim.g.catppuccin_flavour = "macchiato"
+vim.cmd [[colorscheme catppuccin]]
