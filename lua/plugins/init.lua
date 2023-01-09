@@ -46,6 +46,7 @@ local plugins = {
   }, {
     'folke/which-key.nvim',
     event = 'BufWinEnter',
+    dependencies = {'mrjones2014/legendary.nvim'},
     config = function()
       require('config.whichkey')
     end
@@ -68,7 +69,8 @@ local plugins = {
       require('lsp')
     end
   }, 'tpope/vim-repeat', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline', 'hrsh7th/nvim-cmp', 'rafamadriz/friendly-snippets', {
+  'hrsh7th/cmp-cmdline', 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-nvim-lua', 'rafamadriz/friendly-snippets',
+  {
     'L3MON4D3/LuaSnip',
     dependencies = {'rafamadriz/friendly-snippets'},
     config = function()
@@ -110,7 +112,10 @@ local plugins = {
     end
   }, {
     'ray-x/navigator.lua',
-    dependencies = {{'ray-x/guihua.lua', build = 'cd lua/fzy && make'}, 'neovim/nvim-lspconfig'}
+    dependencies = {{'ray-x/guihua.lua', build = 'cd lua/fzy && make'}, 'neovim/nvim-lspconfig'},
+    config = function()
+      require('config.navigator')
+    end
   }, {
     'ray-x/lsp_signature.nvim',
     config = function()
@@ -172,16 +177,22 @@ local plugins = {
     config = function()
       require('config.diffview')
     end
-  }, {
-    'lazytanuki/nvim-mapper',
-    config = function()
-      require('nvim-mapper').setup {}
-    end
   }, {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}, {
     'folke/noice.nvim',
     dependencies = {'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify'},
     config = function()
       require('config.noice')
+    end
+  }, {
+    'mrjones2014/legendary.nvim',
+    dependencies = {'kkharji/sqlite.lua'},
+    config = function()
+      require('config.legendary')
+    end
+  }, {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('config.comment')
     end
   }
 }
