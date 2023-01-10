@@ -1,4 +1,4 @@
-require('indent_blankline').setup{
+require('indent_blankline').setup {
   show_current_context = true,
   context_patterns = {
     "class", "return", "function", "method", "^if", "^while", "jsx_element", "^for", "^object",
@@ -6,5 +6,5 @@ require('indent_blankline').setup{
     "jsx_self_closing_element", "try_statement", "catch_clause", "import_statement",
     "operation_type"
   },
-  filetype_exclude = {'dashboard', 'NvimTree', 'packer'}
+  filetype_exclude = {'dashboard', 'NEO-TREE'}
 }
