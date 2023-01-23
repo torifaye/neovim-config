@@ -194,7 +194,13 @@ local plugins = {
     config = function()
       require('config.comment')
     end
-  }
+  }, {
+    'b0o/incline.nvim',
+    config = function()
+      require('config.incline')
+    end
+  }, 'SmiteshP/nvim-navic'
+
 }
 local opts = {}
 
