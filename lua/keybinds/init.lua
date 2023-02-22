@@ -35,3 +35,31 @@ vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
 vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
 vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
 vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+
+-- Lspsaga keybinds
+local keymap = vim.keymap.set
+
+-- show definition of symbol
+keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+
+-- code actions
+keymap({"n", "v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+
+-- rename symbol in file
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
+
+-- rename all occurrences of the hovered word for the selected files
+keymap("n", "gra", "<cmd>Lspsaga rename ++project<CR>")
+
+-- go to definition
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+
+-- peek type definition
+keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+
+-- show line diagnostics
+keymap("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")

@@ -1,5 +1,6 @@
 local wk = require('which-key')
 local terminal = require('toggleterm.terminal').Terminal
+local possession = require('nvim-possession')
 
 local toggle_float = function()
   local float = terminal:new({direction = "float"})
@@ -28,7 +29,13 @@ local mappings = {
   s = {
     name = "Show",
     f = {toggle_float, "Floating Terminal"},
-    g = {toggle_lazygit, "LazyGit Window"}
+    g = {toggle_lazygit, "LazyGit Window"},
+    s = {
+      name = "Session",
+      l = {possession.list, "List Sessions"},
+      n = {possession.new, "Create a session"},
+      u = {possession.update, "Update current session"}
+    }
   },
   t = {
     name = "Test",
@@ -63,6 +70,11 @@ local mappings = {
     d = {":TroubleToggle document_diagnostics<CR>", "Toggle Document Diagnostics"},
     w = {":TroubleToggle workspace_diagnostics<CR>", "Toggle Workspace Diagnostics"},
     q = {":TroubleToggle quickfix<CR>", "Toggle Quickfix"}
+  },
+  c = {
+    name = "Telescope Filters",
+    c = {require('telescope.builtin').commands, "Show Commands"},
+    s = {require('telescope.builtin').lsp_workspace_symbols, "LSP Workspace Symbols"}
   }
 }
 local opts = {prefix = '<leader>'}

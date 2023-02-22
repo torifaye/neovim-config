@@ -41,6 +41,8 @@ require('telescope').setup {
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-t>"] = trouble.open_with_trouble,
         ["<esc>"] = actions.close,
+        ["<C-s>"] = actions.select_vertical,
+        ["<C-,>"] = actions.select_horizontal,
         ["<CR>"] = actions.select_default + actions.center
       },
       n = {

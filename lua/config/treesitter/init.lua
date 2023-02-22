@@ -54,4 +54,4 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-require('treesitter-context').setup {mode = 'topline', patterns = {elixir = {'do_block'}}}
+-- require('treesitter-context').setup {mode = 'topline', patterns = {elixir = {'do_block'}}}

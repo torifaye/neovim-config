@@ -15,7 +15,7 @@ local plugins = {
       require('catppuccin').setup()
     end
   }, 'Shatur/neovim-ayu', 'folke/tokyonight.nvim',
-  {'nvim-treesitter/nvim-treesitter-context', lazy = true},
+  -- {'nvim-treesitter/nvim-treesitter-context', lazy = true},
   'nvim-treesitter/nvim-treesitter-textobjects', {
     'nvim-treesitter/nvim-treesitter',
     cmd = 'TSUpdate',
@@ -111,12 +111,20 @@ local plugins = {
       require('config.trouble')
     end
   }, {
-    'ray-x/navigator.lua',
-    dependencies = {{'ray-x/guihua.lua', build = 'cd lua/fzy && make'}, 'neovim/nvim-lspconfig'},
+    'glepnir/lspsaga.nvim',
+    event = 'BufRead',
     config = function()
-      require('config.navigator')
-    end
-  }, {
+      require('config.lspsaga')
+    end,
+    dependencies = {'nvim-tree/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter'}
+  }, -- {
+  --   'ray-x/navigator.lua',
+  --   dependencies = { { 'ray-x/guihua.lua', build = 'cd lua/fzy && make' }, 'neovim/nvim-lspconfig' },
+  --   config = function()
+  --     require('config.navigator')
+  --   end
+  -- },
+  {
     'ray-x/lsp_signature.nvim',
     config = function()
       require('config.lsp_signature')
@@ -199,7 +207,13 @@ local plugins = {
     config = function()
       require('config.incline')
     end
-  }, 'SmiteshP/nvim-navic'
+  }, 'SmiteshP/nvim-navic', 'edluffy/hologram.nvim', {
+    'giusgad/pets.nvim',
+    dependencies = {'MunifTanjim/nui.nvim', 'edluffy/hologram.nvim'},
+    config = function()
+      require('config.pets')
+    end
+  }, {'gennaro-tedesco/nvim-possession', dependencies = {'ibhagwan/fzf-lua'}, config = true}
 
 }
 local opts = {}

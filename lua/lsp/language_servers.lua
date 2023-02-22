@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup {
   ensure_installed = {
-    "sumneko_lua", "rust_analyzer", "elixirls", "tsserver", "html", "cssls", "pyright", "ocamllsp"
+    "lua_ls", "rust_analyzer", "elixirls", "tsserver", "html", "cssls", "pyright", "ocamllsp"
   }
 }
 
@@ -17,7 +17,7 @@ end
 
 -- Language server set ups
 lspconfig.elixirls.setup {capabilities = capabilities, on_attach = on_attach}
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
