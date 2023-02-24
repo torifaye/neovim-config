@@ -1,7 +1,8 @@
 local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup {
   ensure_installed = {
-    "lua_ls", "rust_analyzer", "elixirls", "tsserver", "html", "cssls", "pyright", "ocamllsp"
+    "lua_ls", "rust_analyzer", "elixirls", "tsserver", "html", "cssls", "pyright", "ocamllsp",
+    "sqlls", "terraform-ls"
   }
 }
 
@@ -52,3 +53,6 @@ lspconfig.cssls.setup {
 }
 
 lspconfig.ocamllsp.setup {capabilities = capabilities, on_attach = on_attach}
+lspconfig.rust_analyzer.setup {capabilities = capabilities, on_attach = on_attach}
+lspconfig.sqlls.setup {capabilities = capabilities, on_attach = on_attach}
+lspconfig.terraformls.setup {capabilities = capabilities, on_attach = on_attach}
