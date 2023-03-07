@@ -19,7 +19,6 @@ map("n", "tp", ":tabprevious<cr>")
 map("n", "tt", ":ToggleTerm dir=. direction=tab<cr>")
 map("n", "<C-D>", "<C-D>zz")
 map("n", "<C-U>", "<C-U>zz")
-map("t", "<C-N>", "<C-\\><C-n>")
 map('v', '<', '<gv')
 map('v', '>', '>gv')
 

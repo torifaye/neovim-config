@@ -1,6 +1,6 @@
 local wk = require('which-key')
 local terminal = require('toggleterm.terminal').Terminal
-local possession = require('nvim-possession')
+-- local possession = require('nvim-possession')
 
 local toggle_float = function()
   local float = terminal:new({direction = "float"})
@@ -10,6 +10,11 @@ end
 local toggle_lazygit = function()
   local lazygit = terminal:new({direction = "float", cmd = 'lazygit'})
   return lazygit:toggle()
+end
+
+local toggle_vertical_term = function()
+  local term = terminal:new({direction = "vertical"})
+  return term:toggle()
 end
 
 local mappings = {
@@ -30,12 +35,8 @@ local mappings = {
     name = "Show",
     f = {toggle_float, "Floating Terminal"},
     g = {toggle_lazygit, "LazyGit Window"},
-    s = {
-      name = "Session",
-      l = {possession.list, "List Sessions"},
-      n = {possession.new, "Create a session"},
-      u = {possession.update, "Update current session"}
-    }
+    v = {toggle_vertical_term, "Vertical Terminal"},
+    s = {name = "Session"}
   },
   t = {
     name = "Test",
