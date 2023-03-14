@@ -1,3 +1,3 @@
 local statusline = require('config.heirline/statusline')
--- local tabline = require('heirline/tabline')
+-- local tabline = require('config.heirline/tabline')
 require('heirline').setup({statusline = statusline})
